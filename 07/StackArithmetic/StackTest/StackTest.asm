@@ -1,0 +1,546 @@
+//push constant 17
+@17
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 17
+@17
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//eq
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=M-D
+@TRUE2
+D;JEQ
+@FALSE2
+0;JMP
+(TRUE2)
+    D=-1
+    @OUTPUT_D2
+    0;JMP
+(FALSE2)
+    D=0
+    @OUTPUT_D2
+    0;JMP
+(OUTPUT_D2)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 17
+@17
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 16
+@16
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//eq
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=M-D
+@TRUE5
+D;JEQ
+@FALSE5
+0;JMP
+(TRUE5)
+    D=-1
+    @OUTPUT_D5
+    0;JMP
+(FALSE5)
+    D=0
+    @OUTPUT_D5
+    0;JMP
+(OUTPUT_D5)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 16
+@16
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 17
+@17
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//eq
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=M-D
+@TRUE8
+D;JEQ
+@FALSE8
+0;JMP
+(TRUE8)
+    D=-1
+    @OUTPUT_D8
+    0;JMP
+(FALSE8)
+    D=0
+    @OUTPUT_D8
+    0;JMP
+(OUTPUT_D8)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 892
+@892
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//lt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE11
+D;JLT
+@FALSE11
+0;JMP
+(TRUE11)
+    D=-1
+    @OUTPUT_D11
+    0;JMP
+(FALSE11)
+    D=0
+    @OUTPUT_D11
+    0;JMP
+(OUTPUT_D11)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 892
+@892
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//lt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE14
+D;JLT
+@FALSE14
+0;JMP
+(TRUE14)
+    D=-1
+    @OUTPUT_D14
+    0;JMP
+(FALSE14)
+    D=0
+    @OUTPUT_D14
+    0;JMP
+(OUTPUT_D14)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//lt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE17
+D;JLT
+@FALSE17
+0;JMP
+(TRUE17)
+    D=-1
+    @OUTPUT_D17
+    0;JMP
+(FALSE17)
+    D=0
+    @OUTPUT_D17
+    0;JMP
+(OUTPUT_D17)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 32767
+@32767
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//gt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE20
+D;JGT
+@FALSE20
+0;JMP
+(TRUE20)
+    D=-1
+    @OUTPUT_D20
+    0;JMP
+(FALSE20)
+    D=0
+    @OUTPUT_D20
+    0;JMP
+(OUTPUT_D20)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 32767
+@32767
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//gt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE23
+D;JGT
+@FALSE23
+0;JMP
+(TRUE23)
+    D=-1
+    @OUTPUT_D23
+    0;JMP
+(FALSE23)
+    D=0
+    @OUTPUT_D23
+    0;JMP
+(OUTPUT_D23)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//gt
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@TRUE26
+D;JGT
+@FALSE26
+0;JMP
+(TRUE26)
+    D=-1
+    @OUTPUT_D26
+    0;JMP
+(FALSE26)
+    D=0
+    @OUTPUT_D26
+    0;JMP
+(OUTPUT_D26)
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 57
+@57
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 31
+@31
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//push constant 53
+@53
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//add
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D+M
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 112
+@112
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//sub
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D-M
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//neg
+@SP
+A=M-1
+M=-M
+//and
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D&M
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//push constant 82
+@82
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+//and
+@SP
+A=M-1
+D=M
+@R13
+M=D
+@2
+D=A
+@SP
+A=M-D
+D=M
+@R13
+D=D|M
+@SP
+M=M-1
+A=M-1
+M=D
+@SP
+A=M
+M=0
+//not
+@SP
+A=M-1
+M=!M
