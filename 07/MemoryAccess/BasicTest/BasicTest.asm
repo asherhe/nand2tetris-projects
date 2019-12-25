@@ -1,309 +1,231 @@
-//push constant 10
+// Bootstrap code
+@256
+D=A
+@SP
+M=D
+// push constant 10
 @10
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop local 0
+// pop local 0
 @0
 D=A
 @LCL
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//push constant 21
+// push constant 21
 @21
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 22
+// push constant 22
 @22
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop argument 2
+// pop argument 2
 @2
 D=A
 @ARG
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//pop argument 1
+// pop argument 1
 @1
 D=A
 @ARG
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//push constant 36
+// push constant 36
 @36
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop this 6
+// pop this 6
 @6
 D=A
 @THIS
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//push constant 42
+// push constant 42
 @42
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 45
+// push constant 45
 @45
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop that 5
+// pop that 5
 @5
 D=A
 @THAT
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//pop that 2
+// pop that 2
 @2
 D=A
 @THAT
-D=D+M
-@R13
-M=D
+D=M+D
 @SP
 M=M-1
-A=M
+A=M+1
+M=D
+A=A-1
 D=M
-M=0
-@R13
+A=A+1
 A=M
 M=D
-//push constant 510
+// push constant 510
 @510
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop temp 6
-@11
-D=A
-@R13
-M=D
+// pop temp 6
 @SP
-M=M-1
-A=M
+AM=M-1
 D=M
-M=0
-@R13
-A=M
+@R11
 M=D
-//push local 0
+// push local 0
 @0
 D=A
 @LCL
-A=D+M
+A=M+D
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//push that 5
+// push that 5
 @5
 D=A
 @THAT
-A=D+M
+A=M+D
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//add
+// add
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D+M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push argument 1
+A=A-1
+M=M+D
+// push argument 1
 @1
 D=A
 @ARG
-A=D+M
+A=M+D
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//sub
+// sub
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push this 6
+A=A-1
+M=M-D
+// push this 6
 @6
 D=A
 @THIS
-A=D+M
+A=M+D
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//push this 6
+// push this 6
 @6
 D=A
 @THIS
-A=D+M
+A=M+D
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//add
+// add
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
+A=A-1
+M=M+D
+// sub
 @SP
-A=M-D
+AM=M-1
 D=M
-@R13
-D=D+M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//sub
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push temp 6
-@11
+A=A-1
+M=M-D
+// push temp 6
+@R11
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//add
+// add
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D+M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
+A=A-1
+M=M+D

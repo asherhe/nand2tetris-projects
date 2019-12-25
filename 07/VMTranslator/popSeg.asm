@@ -1,0 +1,13 @@
+@%d
+D=A
+@%s
+D=M+D
+@SP
+M=M-1
+A=M+1
+M=D
+A=A-1
+D=M
+A=A+1
+A=M
+M=D

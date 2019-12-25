@@ -1,546 +1,382 @@
-//push constant 17
+// push constant 17
 @17
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 17
+// push constant 17
 @17
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//eq
+// eq
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+@TRUE0
+D;JEQ
+@FALSE0
+0;JMP
+(TRUE0)
 @SP
 A=M-1
-D=M
-@R13
-M=D
-@2
+M=-1
+@END0
+0;JMP
+(FALSE0)
+@SP
+A=M-1
+M=0
+(END0)
+// push constant 17
+@17
 D=A
 @SP
-A=M-D
+M=M+1
+A=M-1
+M=D
+// push constant 16
+@16
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// eq
+@SP
+AM=M-1
 D=M
-@R13
+A=A-1
+D=M-D
+@TRUE1
+D;JEQ
+@FALSE1
+0;JMP
+(TRUE1)
+@SP
+A=M-1
+M=-1
+@END1
+0;JMP
+(FALSE1)
+@SP
+A=M-1
+M=0
+(END1)
+// push constant 16
+@16
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// push constant 17
+@17
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// eq
+@SP
+AM=M-1
+D=M
+A=A-1
 D=M-D
 @TRUE2
 D;JEQ
 @FALSE2
 0;JMP
 (TRUE2)
-    D=-1
-    @OUTPUT_D2
-    0;JMP
+@SP
+A=M-1
+M=-1
+@END2
+0;JMP
 (FALSE2)
-    D=0
-    @OUTPUT_D2
-    0;JMP
-(OUTPUT_D2)
 @SP
-M=M-1
 A=M-1
-M=D
-@SP
-A=M
 M=0
-//push constant 17
-@17
+(END2)
+// push constant 892
+@892
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 16
-@16
+// push constant 891
+@891
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//eq
+// lt
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+@TRUE3
+D;JLT
+@FALSE3
+0;JMP
+(TRUE3)
 @SP
 A=M-1
-D=M
-@R13
-M=D
-@2
+M=-1
+@END3
+0;JMP
+(FALSE3)
+@SP
+A=M-1
+M=0
+(END3)
+// push constant 891
+@891
 D=A
 @SP
-A=M-D
+M=M+1
+A=M-1
+M=D
+// push constant 892
+@892
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// lt
+@SP
+AM=M-1
 D=M
-@R13
+A=A-1
+D=M-D
+@TRUE4
+D;JLT
+@FALSE4
+0;JMP
+(TRUE4)
+@SP
+A=M-1
+M=-1
+@END4
+0;JMP
+(FALSE4)
+@SP
+A=M-1
+M=0
+(END4)
+// push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// push constant 891
+@891
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// lt
+@SP
+AM=M-1
+D=M
+A=A-1
 D=M-D
 @TRUE5
-D;JEQ
+D;JLT
 @FALSE5
 0;JMP
 (TRUE5)
-    D=-1
-    @OUTPUT_D5
-    0;JMP
+@SP
+A=M-1
+M=-1
+@END5
+0;JMP
 (FALSE5)
-    D=0
-    @OUTPUT_D5
-    0;JMP
-(OUTPUT_D5)
 @SP
-M=M-1
 A=M-1
-M=D
-@SP
-A=M
 M=0
-//push constant 16
-@16
+(END5)
+// push constant 32767
+@32767
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 17
-@17
+// push constant 32766
+@32766
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//eq
+// gt
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+@TRUE6
+D;JGT
+@FALSE6
+0;JMP
+(TRUE6)
 @SP
 A=M-1
-D=M
-@R13
-M=D
-@2
+M=-1
+@END6
+0;JMP
+(FALSE6)
+@SP
+A=M-1
+M=0
+(END6)
+// push constant 32766
+@32766
 D=A
 @SP
-A=M-D
+M=M+1
+A=M-1
+M=D
+// push constant 32767
+@32767
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// gt
+@SP
+AM=M-1
 D=M
-@R13
+A=A-1
+D=M-D
+@TRUE7
+D;JGT
+@FALSE7
+0;JMP
+(TRUE7)
+@SP
+A=M-1
+M=-1
+@END7
+0;JMP
+(FALSE7)
+@SP
+A=M-1
+M=0
+(END7)
+// push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// push constant 32766
+@32766
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+// gt
+@SP
+AM=M-1
+D=M
+A=A-1
 D=M-D
 @TRUE8
-D;JEQ
+D;JGT
 @FALSE8
 0;JMP
 (TRUE8)
-    D=-1
-    @OUTPUT_D8
-    0;JMP
+@SP
+A=M-1
+M=-1
+@END8
+0;JMP
 (FALSE8)
-    D=0
-    @OUTPUT_D8
-    0;JMP
-(OUTPUT_D8)
 @SP
-M=M-1
 A=M-1
-M=D
-@SP
-A=M
 M=0
-//push constant 892
-@892
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 891
-@891
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//lt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE11
-D;JLT
-@FALSE11
-0;JMP
-(TRUE11)
-    D=-1
-    @OUTPUT_D11
-    0;JMP
-(FALSE11)
-    D=0
-    @OUTPUT_D11
-    0;JMP
-(OUTPUT_D11)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 891
-@891
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 892
-@892
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//lt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE14
-D;JLT
-@FALSE14
-0;JMP
-(TRUE14)
-    D=-1
-    @OUTPUT_D14
-    0;JMP
-(FALSE14)
-    D=0
-    @OUTPUT_D14
-    0;JMP
-(OUTPUT_D14)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 891
-@891
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 891
-@891
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//lt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE17
-D;JLT
-@FALSE17
-0;JMP
-(TRUE17)
-    D=-1
-    @OUTPUT_D17
-    0;JMP
-(FALSE17)
-    D=0
-    @OUTPUT_D17
-    0;JMP
-(OUTPUT_D17)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 32767
-@32767
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 32766
-@32766
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//gt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE20
-D;JGT
-@FALSE20
-0;JMP
-(TRUE20)
-    D=-1
-    @OUTPUT_D20
-    0;JMP
-(FALSE20)
-    D=0
-    @OUTPUT_D20
-    0;JMP
-(OUTPUT_D20)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 32766
-@32766
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 32767
-@32767
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//gt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE23
-D;JGT
-@FALSE23
-0;JMP
-(TRUE23)
-    D=-1
-    @OUTPUT_D23
-    0;JMP
-(FALSE23)
-    D=0
-    @OUTPUT_D23
-    0;JMP
-(OUTPUT_D23)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 32766
-@32766
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//push constant 32766
-@32766
-D=A
-@SP
-M=M+1
-A=M-1
-M=D
-//gt
-@SP
-A=M-1
-D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@TRUE26
-D;JGT
-@FALSE26
-0;JMP
-(TRUE26)
-    D=-1
-    @OUTPUT_D26
-    0;JMP
-(FALSE26)
-    D=0
-    @OUTPUT_D26
-    0;JMP
-(OUTPUT_D26)
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 57
+(END8)
+// push constant 57
 @57
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 31
+// push constant 31
 @31
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 53
+// push constant 53
 @53
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//add
+// add
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D+M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 112
+A=A-1
+M=M+D
+// push constant 112
 @112
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//sub
+// sub
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//neg
+A=A-1
+M=M-D
+// neg
 @SP
 A=M-1
 M=-M
-//and
+// and
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D&M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push constant 82
+A=A-1
+M=M&D
+// push constant 82
 @82
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//and
+// or
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D|M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//not
+A=A-1
+M=M|D
+// not
 @SP
 A=M-1
 M=!M

@@ -1,121 +1,72 @@
-//push constant 111
+// push constant 111
 @111
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 333
+// push constant 333
 @333
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//push constant 888
+// push constant 888
 @888
 D=A
 @SP
 M=M+1
 A=M-1
 M=D
-//pop static 8
-@24
-D=A
-@R13
-M=D
+// pop static 8
 @SP
-M=M-1
-A=M
+AM=M-1
 D=M
-M=0
-@R13
-A=M
+@.8
 M=D
-//pop static 3
-@19
-D=A
-@R13
-M=D
+// pop static 3
 @SP
-M=M-1
-A=M
+AM=M-1
 D=M
-M=0
-@R13
-A=M
+@.3
 M=D
-//pop static 1
-@17
-D=A
-@R13
-M=D
+// pop static 1
 @SP
-M=M-1
-A=M
+AM=M-1
 D=M
-M=0
-@R13
-A=M
+@.1
 M=D
-//push static 3
-@19
+// push static 3
+@.3
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//push static 1
-@17
+// push static 1
+@.1
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//sub
+// sub
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D-M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
-//push static 8
-@24
+A=A-1
+M=M-D
+// push static 8
+@.8
 D=M
 @SP
 M=M+1
 A=M-1
 M=D
-//add
+// add
 @SP
-A=M-1
+AM=M-1
 D=M
-@R13
-M=D
-@2
-D=A
-@SP
-A=M-D
-D=M
-@R13
-D=D+M
-@SP
-M=M-1
-A=M-1
-M=D
-@SP
-A=M
-M=0
+A=A-1
+M=M+D
