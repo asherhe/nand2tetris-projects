@@ -1,5 +1,5 @@
 # nand2tetris-projects
-The nand2tetris projects for the nand2tetris course on coursera
+These are the nand2tetris projects for the nand2tetris course
 
 01:
 	The Elementry logic gates (AND, OR, NOT, XOR, MUX, DMUX, etc.)
@@ -19,9 +19,12 @@ The nand2tetris projects for the nand2tetris course on coursera
 06:
 	Assembler
 	
-07 & 08:
-	VM
-	
+07:
+	VM (Stack Arithmetic)
+
+08:
+	VM (Program control)	
+
 09:
 	High level language (Jack)
 	
@@ -29,7 +32,7 @@ The nand2tetris projects for the nand2tetris course on coursera
 	Compiler
 	
 12:
-	OS
+	Operating system
 	
 13:
 	More fun to go
