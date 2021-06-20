@@ -1,13 +1,17 @@
 function Main.main 3
+// let
 push constant 10
 call Array.new 1
 pop local 0
+// let
 push constant 5
 call Array.new 1
 pop local 1
+// let
 push constant 1
 call Array.new 1
 pop local 2
+// let
 push local 0
 push constant 3
 add
@@ -16,6 +20,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 0
 push constant 4
 add
@@ -24,6 +30,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 0
 push constant 5
 add
@@ -32,6 +40,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 1
 push local 0
 push constant 3
@@ -50,6 +60,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 0
 push local 1
 push local 0
@@ -91,6 +103,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 2
 push constant 0
 add
@@ -98,12 +112,15 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 2
 push constant 0
 add
 pop pointer 1
 push that 0
 pop local 2
+// do
 push constant 43
 call String.new 1
 push constant 84
@@ -194,6 +211,7 @@ push constant 32
 call String.appendChar 2
 call Output.printString 1
 pop temp 0
+// do
 push local 1
 push constant 2
 add
@@ -201,8 +219,10 @@ pop pointer 1
 push that 0
 call Output.printInt 1
 pop temp 0
+// do
 call Output.println 0
 pop temp 0
+// do
 push constant 44
 call String.new 1
 push constant 84
@@ -295,6 +315,7 @@ push constant 32
 call String.appendChar 2
 call Output.printString 1
 pop temp 0
+// do
 push local 0
 push constant 5
 add
@@ -302,8 +323,10 @@ pop pointer 1
 push that 0
 call Output.printInt 1
 pop temp 0
+// do
 call Output.println 0
 pop temp 0
+// do
 push constant 43
 call String.new 1
 push constant 84
@@ -394,26 +417,33 @@ push constant 32
 call String.appendChar 2
 call Output.printString 1
 pop temp 0
+// do
 push local 2
 call Output.printInt 1
 pop temp 0
+// do
 call Output.println 0
 pop temp 0
+// let
 pop local 2
+// if
 push local 2
 eq
 not
 if-goto IF0-1
+// do
 push local 0
 push constant 10
 call Main.fill 2
 pop temp 0
+// let
 push local 0
 push constant 3
 add
 pop pointer 1
 push that 0
 pop local 2
+// let
 push local 2
 push constant 1
 add
@@ -422,12 +452,15 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 0
 push constant 7
 add
 pop pointer 1
 push that 0
 pop local 2
+// let
 push local 2
 push constant 1
 add
@@ -436,12 +469,15 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
+// let
 push local 0
 push constant 3
 add
 pop pointer 1
 push that 0
 pop local 1
+// let
 push local 1
 push constant 1
 add
@@ -460,7 +496,9 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
 label IF0-1
+// do
 push constant 44
 call String.new 1
 push constant 84
@@ -553,6 +591,7 @@ push constant 32
 call String.appendChar 2
 call Output.printString 1
 pop temp 0
+// do
 push local 2
 push constant 1
 add
@@ -560,8 +599,10 @@ pop pointer 1
 push that 0
 call Output.printInt 1
 pop temp 0
+// do
 call Output.println 0
 pop temp 0
+// do
 push constant 45
 call String.new 1
 push constant 84
@@ -656,6 +697,7 @@ push constant 32
 call String.appendChar 2
 call Output.printString 1
 pop temp 0
+// do
 push local 1
 push constant 1
 add
@@ -663,25 +705,31 @@ pop pointer 1
 push that 0
 call Output.printInt 1
 pop temp 0
+// do
 call Output.println 0
 pop temp 0
+// return
 return
 function Main.double 0
+// return
 push argument 0
 push constant 2
 call Math.multiply 2
 return
 function Main.fill 0
+// while
 label LOOP0
 push argument 1
 push constant 0
 gt
 not
 if-goto LOOP-END0
+// let
 push argument 1
 push constant 1
 neg
 pop argument 1
+// let
 push argument 0
 push argument 1
 add
@@ -691,6 +739,8 @@ pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+// ;
 goto LOOP0
 label LOOP-END0
+// return
 return
