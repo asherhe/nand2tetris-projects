@@ -1,0 +1,26 @@
+class File {
+  field String name;
+  field String content;
+
+  constructor File new(String fileName) {
+    let name = fileName;
+    let content = "";
+    return this;
+  }
+
+  method String getName() {
+    return name;
+  }
+  method String getContent() {
+    return content;
+  }
+
+  method void rename(String newName) {
+    let name = newName;
+    return;
+  }
+  method void setContent(String new) {
+    let content = new;
+    return;
+  }
+}

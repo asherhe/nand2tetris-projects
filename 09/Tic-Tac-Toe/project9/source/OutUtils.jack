@@ -1,0 +1,43 @@
+/**
+ * Some basic output utilities
+ */
+class OutUtils {
+  /**
+   * Prints a string, then disposes it to prevent memory leaks
+   */
+  function void printAndDispose(String s) {
+    do Output.printString(s);
+    do s.dispose();
+    return;
+  }
+
+  /**
+   * Prints a string with escape sequences (e.g. \n, \\)
+   */
+  function void print(String s) {
+    var int i, length;
+    var char curr, escape;
+    let i = 0;
+    let length = s.length();
+    while (i < length) {
+      let curr = s.charAt(i);
+      if (~(curr = 92)) { // Not an escape sequence
+        do Output.printChar(curr);
+      }
+      if (curr = 92) { // "\" (backslash)
+        // This is an escape sequence
+        let i = i + 1;
+        let curr = s.charAt(i);
+
+        if (curr = 92) { // "\" (backslash)
+          do OutUtils.printAndDispose("\\");
+        }
+        if (curr = 110) { // "n"
+          do Output.println();
+        }
+      }
+      let i = i + 1;
+    }
+    return;
+  }
+}

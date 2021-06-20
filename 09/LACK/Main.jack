@@ -1,0 +1,30 @@
+/**
+ * This is the file that gets everything started, and also manages what is displayed
+ */
+class Main {
+  /**
+   * Runs the LACK system, starting with a root folder
+   */
+  function void main() {
+    var String welcome;
+    var Folder root;
+    // "Welcome" screen
+    let welcome = "Welcome to LACK!";
+    do Output.printString(welcome);
+    do Output.println();
+    do welcome.dispose();
+    let welcome = "We LACK functionality!";
+    do Output.printString(welcome);
+    do Output.println();
+    do welcome.dispose();
+    let welcome = "Seriously though, we lack functionality";
+    do Output.printString(welcome);
+    do Output.println();
+    do welcome.dispose();
+    do Sys.wait(5000);
+    // Create root folder
+    let root = Folder.create("root");
+    do Explorer.draw(root, "/root/");
+    return;
+  }
+}

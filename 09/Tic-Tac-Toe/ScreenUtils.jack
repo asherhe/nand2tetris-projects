@@ -1,0 +1,24 @@
+class ScreenUtils {
+  /**
+   * Draws a sprite at a certain memory location
+   */
+  function void drawSprite(int memAddress, int w1, int w2, int w3, int w4, int w5, int w6, int w7, int w8, int w9, int w10, int w11, int w12, int w13, int w14, int w15, int w16) {
+    do Memory.poke(memAddress+0  , w1 );
+    do Memory.poke(memAddress+32 , w2 );
+    do Memory.poke(memAddress+64 , w3 );
+    do Memory.poke(memAddress+96 , w4 );
+    do Memory.poke(memAddress+128, w5 );
+    do Memory.poke(memAddress+160, w6 );
+    do Memory.poke(memAddress+192, w7 );
+    do Memory.poke(memAddress+224, w8 );
+    do Memory.poke(memAddress+256, w9 );
+    do Memory.poke(memAddress+288, w10);
+    do Memory.poke(memAddress+320, w11);
+    do Memory.poke(memAddress+352, w12);
+    do Memory.poke(memAddress+384, w13);
+    do Memory.poke(memAddress+416, w14);
+    do Memory.poke(memAddress+448, w15);
+    do Memory.poke(memAddress+480, w16);
+    return;
+  }
+}

@@ -1,0 +1,16 @@
+// {0}
+@SP
+AM=M-1
+D=M
+A=A-1
+D=M-D
+M=0
+@CMPTRUE.{2}
+D;J{1}
+@CMPEND.{2}
+0;JMP
+(CMPTRUE.{2})
+@SP
+A=M-1
+M=-1
+(CMPEND.{2})

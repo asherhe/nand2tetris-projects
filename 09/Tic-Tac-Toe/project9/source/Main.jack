@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    var TicTacToeGame game;
+    let game = TicTacToeGame.new();
+    do game.run();
+    return;
+  }
+}

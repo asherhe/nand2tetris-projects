@@ -1,0 +1,214 @@
+/**
+ * A simple Binary Search Tree (https://en.wikipedia.org/wiki/Binary_search_tree)
+ * implementation, with insertion, deletion, and inorder traversal functionalities.
+ */
+class BST {
+  field Array val;
+  field BST left, right;
+  field int size;
+
+  /**
+   * Constructs a new Binary Search Tree, given a starting value
+   */
+  constructor BST new(Array value) {
+    let val = value;
+    let size = 0;
+    return this;
+  }
+
+  /**
+   * Gets and sets the value of this node in the BST, respectively
+   */
+  method Array getValue() {
+    return val;
+  }
+  method void setValue(Array value) {
+    let val = value;
+    return;
+  }
+
+  /**
+   * Gets the left and right subtrees, respectively
+   */
+  method BST getLeft() {
+    return left;
+  }
+  method BST getRight() {
+    return right;
+  }
+
+  /**
+   * Sets the left and right subtrees, respectively.
+   */
+  method void setLeft(BST new) {
+    let left = new;
+    return;
+  }
+  method void setRight(BST new) {
+    let right = new;
+    return;
+  }
+
+  /**
+   * Inserts a value into the BST
+   */
+  method void insert(Array value) {
+    var int compare;
+
+    let size = size + 1;
+
+    // BST is empty
+    if (val = null) {
+      let val = value;
+      return;
+    }
+
+    // There is stuff in the BST
+    let compare = StringUtils.compare(val[0], value[0]);
+    if (compare < 0) {
+      if (left = null) {
+        let left = BST.new(value);
+        return;
+      }
+      do left.insert(value);
+    }
+    if (compare = 0) {
+      return;
+    }
+    if (compare > 0) {
+      if (right = null) {
+        let right = BST.new(value);
+        return;
+      }
+      do right.insert(value);
+    }
+    return;
+  }
+
+  /**
+   * Searches for a value in the BST
+   */
+  method Array search(String value) {
+    var String compare;
+    if (val = null) {
+      return null;
+    }
+
+    let compare = StringUtils.compare(val[0], value[0]);
+    if (compare < 0) {
+      if (left = null) {
+        return null;
+      } else {
+        return left.search(value);
+      }
+    }
+    if (compare = 0) {
+      return val;
+    }
+    if (compare > 0) {
+      if (right = null) {
+        return null;
+      } else  {
+        return right.search(value);
+      }
+    }
+
+    // This isn't supposed to happen though
+    return null;
+  }
+
+  /**
+   * Deletes a value from the BST
+   */
+  method void delete(String value) {
+    var BST parent, temp, successor;
+    var Array pVal;
+    var int compare;
+    var boolean found;
+
+    let compare = StringUtils.compare(val[0], value);
+    if (compare < 0) {
+      do left.delete(value);
+      return;
+    }
+    if (compare > 0) {
+      do right.delete(value);
+      return;
+    }
+
+    // The current node is the node selected for deletion
+    let size = size - 1;
+
+    // Find parent of selected node
+    let temp = this;
+    let found = false;
+    while (~(temp = null) & ~found) {
+      let parent = temp;
+      
+      let compare = StringUtils.compare(val[0], value);
+      if (compare < 0) {
+        let temp = left;
+      }
+      if (compare = 0) {
+        let found = true;
+      }
+      if (compare > 0) {
+        let temp = right;
+      }
+    }
+
+    let pVal = parent.getValue();
+    let compare = StringUtils.compare(pVal[0], val[0]);
+
+    // One or no children
+    if ((left = null) | (right = null)) {
+      if (compare < 0) {
+        do parent.setLeft(left);
+      }
+      if (compare > 0) {
+        do parent.setRight(right);
+      }
+      do Memory.deAlloc(this);
+      return;
+    }
+
+    // Two children
+    let temp = inorderSuccessorParent();
+    let successor = temp.getLeft();
+    do successor.setLeft(left);
+    do successor.setRight(right);
+    do temp.setLeft(null);
+    do Memory.deAlloc(this);
+    return;
+  }
+
+  /**
+   * Finds the parent of the inorder successor of this node
+   */
+   method BST inorderSuccessorParent() {
+    var BST curr, parent;
+    let curr = right;
+    while (~(curr.getLeft() = null)) {
+      let parent = curr;
+      let curr = curr.getLeft();
+    }
+    return parent;
+  }
+
+  // TODO: Implement in-order traversal
+  method BetterArray inorder() {
+    var BetterArray inorder, temp;
+
+    if (~(left = null)) {
+      let inorder = left.inorder();
+    }
+    let temp = BetterArray.new(1);
+    let temp[0] = val;
+    let inorder = ArrayUtils.combine(inorder, temp);
+    if (~(right = null)) {
+      let inorder = ArrayUtils.combine(inorder, right.inorder());
+    }
+
+    return inorder;
+  }
+}

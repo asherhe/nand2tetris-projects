@@ -1,0 +1,319 @@
+/**
+ * Represents a tic-tac-toe grid. -1 represents an X and 1 represents an O
+ */
+class Grid {
+  field Array grid;
+
+  constructor Grid new() {
+    // Set up grid
+    let grid = Array.new(3);
+    let grid[0] = Array.new(3);
+    let grid[1] = Array.new(3);
+    let grid[2] = Array.new(3);
+
+    return this;
+  }
+
+  /**
+   * Adds a value to the grid, and check if anybody has won
+   */
+  method int add(int x, int y, int val) {
+    var Array gridColumn;
+    var int pos, tmp, curr, ret;
+    // Set value
+    let gridColumn = grid[x];
+    let gridColumn[y] = val;
+
+    // Checks for win
+    let pos = 0;
+    let gridColumn = grid[0];
+    let tmp = gridColumn[y];
+    while (pos < 3) { // Check if there's a vertical situation
+      let gridColumn = grid[pos];
+      let curr = gridColumn[y];
+      if (~(tmp = curr)) {
+        let tmp = 0;
+      }
+      let pos = pos + 1;
+    }
+    let ret = tmp;
+
+    let pos = 0;
+    let gridColumn = grid[x];
+    let tmp = gridColumn[0];
+    while (pos < 3) { // Check if there's a horizontal situation
+      let gridColumn = grid[x];
+      let curr = gridColumn[pos];
+      if (~(tmp = curr)) {
+        let tmp = 0;
+      }
+      let pos = pos + 1;
+    }
+    if (ret = 0) {
+      let ret = tmp;
+    }
+
+    // Check if there's also a diagonal row. Magically, there is a diagonal if x+y is odd
+    let tmp = x + y;
+    if (tmp = (tmp / 2 * 2)) {
+      if (x + y = 2) { // Diagonal with slope 1
+        let pos = 0;
+        let gridColumn = grid[0];
+        let tmp = gridColumn[2];
+        while (pos < 3) {
+          let gridColumn = grid[pos];
+          let curr = gridColumn[2 - pos];
+          if (~(tmp = curr)) {
+            let tmp = 0;
+          }
+          let pos = pos + 1;
+        }
+        if (ret = 0) {
+          let ret = tmp;
+        }
+      }
+
+      if (x = y) { // Diagonal with slope -1
+        let pos = 0;
+        let gridColumn = grid[0];
+        let tmp = gridColumn[0];
+        while (pos < 3) {
+          let gridColumn = grid[pos];
+          let curr = gridColumn[pos];
+          if (~(tmp = curr)) {
+            let tmp = 0;
+          }
+          let pos = pos + 1;
+        }
+        if (ret = 0) {
+          let ret = tmp;
+        }
+      }
+    }
+
+    return ret;
+  }
+  
+  /**
+   * Gets the value at a specific cell
+   */
+  method int get(int x, int y) {
+    var Array gridColumn;
+
+    let gridColumn = grid[x];
+    return gridColumn[y];
+  }
+
+  // Draws the grid
+  method void draw(int x, int y) {
+    var int gridX, gridY, val;
+    var Array gridColumn;
+
+    // Draw X's and O's by iterating through grid
+    let gridX = 0;
+    let gridY = 0;
+    while (gridX < 3) {
+      let gridColumn = grid[gridX];
+      while (gridY < 3) {
+        let val = gridColumn[gridY];
+        if (val = -1) {
+          do Grid.drawCross(x + (gridX * 32), y + (gridY * 32));
+        }
+        if (val = 1) {
+          do Grid.drawCircle(x + (gridX * 32), y + (gridY * 32));
+        }
+
+        let gridY = gridY + 1;
+      }
+      let gridY = 0;
+      let gridX = gridX + 1;
+    }
+
+
+    // Draw grid lines
+    do Screen.setColor(true);
+    do Screen.drawRectangle(x+32, y, x+33, y+96);
+    do Screen.drawRectangle(x+64, y, x+65, y+96);
+    do Screen.drawRectangle(x, y+32, x+96, y+33);
+    do Screen.drawRectangle(x, y+64, x+96, y+65);
+    return;
+  }
+
+  /** Stuff below are all sprite-related operations */
+
+  function int getMemAddress(int x, int y) {
+    return 16384+((x/16)+(y*32));
+  }
+
+  function void drawCircle(int x, int y) {
+    var int memAddress;
+    let memAddress = Grid.getMemAddress(x, y);
+
+    // Top-left quarter
+    do ScreenUtils.drawSprite(memAddress, 
+      -4096,
+      -512 ,
+      8064 ,
+      960  ,
+      224  ,
+      112  ,
+      56   ,
+      28   ,
+      12   ,
+      14   ,
+      6    ,
+      6    ,
+      7    ,
+      3    ,
+      3    ,
+      3    
+    );
+
+    // Top-right quarter
+    do ScreenUtils.drawSprite(memAddress+1,
+      15    ,
+      127   ,
+      504   ,
+      960   ,
+      1792  ,
+      3584  ,
+      7168  ,
+      14336 ,
+      12288 ,
+      28672 ,
+      24576 ,
+      24576 ,
+      -8192 ,
+      -16384,
+      -16384,
+      -16384
+    );
+    
+    // Bottom-left quarter
+    do ScreenUtils.drawSprite(memAddress+512,
+      3    ,
+      3    ,
+      3    ,
+      7    ,
+      6    ,
+      6    ,
+      14   ,
+      12   ,
+      28   ,
+      56   ,
+      112  ,
+      224  ,
+      960  ,
+      8064 ,
+      -512 ,
+      -4096
+    );
+
+    // Bottom-right quarter
+    do ScreenUtils.drawSprite(memAddress+513,
+      -16384,
+      -16384,
+      -16384,
+      -8192 ,
+      24576 ,
+      24576 ,
+      28672 ,
+      12288 ,
+      14336 ,
+      7168  ,
+      3584  ,
+      1792  ,
+      960   ,
+      504   ,
+      127   ,
+      15    
+    );
+    return;
+  }
+
+  function void drawCross(int x, int y) {
+    var int memAddress;
+    let memAddress = Grid.getMemAddress(x, y);
+
+    // Top-left quarter
+    do ScreenUtils.drawSprite(memAddress,
+      7    ,
+      15   ,
+      31   ,
+      62   ,
+      124  ,
+      248  ,
+      496  ,
+      992  ,
+      1984 ,
+      3968 ,
+      7936 ,
+      15872,
+      31744,
+      -2048,
+      -4096,
+      -8192
+    );
+
+    // Top-right quarter
+    do ScreenUtils.drawSprite(memAddress+1,
+      -8192,
+      -4096,
+      -2048,
+      31744,
+      15872,
+      7936 ,
+      3968 ,
+      1984 ,
+      992  ,
+      496  ,
+      248  ,
+      124  ,
+      62   ,
+      31   ,
+      15   ,
+      7    
+    );
+    
+    // Bottom-left quarter
+    do ScreenUtils.drawSprite(memAddress+512,
+      -8192,
+      -4096,
+      -2048,
+      31744,
+      15872,
+      7936 ,
+      3968 ,
+      1984 ,
+      992  ,
+      496  ,
+      248  ,
+      124  ,
+      62   ,
+      31   ,
+      15   ,
+      7    
+    );
+
+    // Bottom-right quarter
+    do ScreenUtils.drawSprite(memAddress+513,
+      7    ,
+      15   ,
+      31   ,
+      62   ,
+      124  ,
+      248  ,
+      496  ,
+      992  ,
+      1984 ,
+      3968 ,
+      7936 ,
+      15872,
+      31744,
+      -2048,
+      -4096,
+      -8192
+    );
+    return;
+  }
+}

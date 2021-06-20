@@ -1,0 +1,36 @@
+/**
+ * A better array type with more features than the plain old array
+ */
+class BetterArray {
+  field Array arr;
+  field int length;
+
+  constructor BetterArray new(int size) {
+    let arr = Array.new(size);
+    let length = size;
+    return this;
+  }
+
+  method int get(int index) {
+    return arr[index];
+  }
+
+  method void set(int index, int val) {
+    let arr[index] = val;
+    return;
+  }
+
+  /**
+   * Returns the length of the array
+   */
+  method int length() {
+    return length;
+  }
+
+  /**
+   * Returns the array representation of this better array
+   */
+  method Array asArray() {
+    return arr;
+  }
+}

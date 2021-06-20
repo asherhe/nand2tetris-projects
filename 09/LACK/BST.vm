@@ -1,0 +1,449 @@
+function BST.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 0
+pop this 3
+push pointer 0
+return
+function BST.getValue 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function BST.setValue 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push constant 0
+return
+function BST.getLeft 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function BST.getRight 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function BST.setLeft 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function BST.setRight 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
+return
+function BST.insert 1
+push argument 0
+pop pointer 0
+push this 3
+push constant 1
+add
+pop this 3
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+pop this 0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 0
+push argument 1
+add
+pop pointer 1
+push that 0
+call StringUtils.compare 2
+pop local 0
+push local 0
+push constant 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+push constant 0
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 1
+call BST.new 1
+pop this 1
+push constant 0
+return
+label IF_FALSE2
+push this 1
+push argument 1
+call BST.insert 2
+pop temp 0
+label IF_FALSE1
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+return
+label IF_FALSE3
+push local 0
+push constant 0
+gt
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 2
+push constant 0
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push argument 1
+call BST.new 1
+pop this 2
+push constant 0
+return
+label IF_FALSE5
+push this 2
+push argument 1
+call BST.insert 2
+pop temp 0
+label IF_FALSE4
+push constant 0
+return
+function BST.search 1
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 0
+push argument 1
+add
+pop pointer 1
+push that 0
+call StringUtils.compare 2
+pop local 0
+push local 0
+push constant 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+push constant 0
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+return
+goto IF_END2
+label IF_FALSE2
+push this 1
+push argument 1
+call BST.search 2
+return
+label IF_END2
+label IF_FALSE1
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 0
+return
+label IF_FALSE3
+push local 0
+push constant 0
+gt
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 2
+push constant 0
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 0
+return
+goto IF_END5
+label IF_FALSE5
+push this 2
+push argument 1
+call BST.search 2
+return
+label IF_END5
+label IF_FALSE4
+push constant 0
+return
+function BST.delete 6
+push argument 0
+pop pointer 0
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+push argument 1
+call StringUtils.compare 2
+pop local 4
+push local 4
+push constant 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+call BST.delete 2
+pop temp 0
+push constant 0
+return
+label IF_FALSE0
+push local 4
+push constant 0
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+call BST.delete 2
+pop temp 0
+push constant 0
+return
+label IF_FALSE1
+push this 3
+push constant 1
+sub
+pop this 3
+push pointer 0
+pop local 1
+push constant 0
+pop local 5
+label WHILE_EXP0
+push local 1
+push constant 0
+eq
+not
+push local 5
+not
+and
+not
+if-goto WHILE_END0
+push local 1
+pop local 0
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+push argument 1
+call StringUtils.compare 2
+pop local 4
+push local 4
+push constant 0
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 1
+pop local 1
+label IF_FALSE2
+push local 4
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+not
+pop local 5
+label IF_FALSE3
+push local 4
+push constant 0
+gt
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 2
+pop local 1
+label IF_FALSE4
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+call BST.getValue 1
+pop local 3
+push constant 0
+push local 3
+add
+pop pointer 1
+push that 0
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+call StringUtils.compare 2
+pop local 4
+push this 1
+push constant 0
+eq
+push this 2
+push constant 0
+eq
+or
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 4
+push constant 0
+lt
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 0
+push this 1
+call BST.setLeft 2
+pop temp 0
+label IF_FALSE6
+push local 4
+push constant 0
+gt
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push local 0
+push this 2
+call BST.setRight 2
+pop temp 0
+label IF_FALSE7
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+label IF_FALSE5
+push pointer 0
+call BST.inorderSuccessorParent 1
+pop local 1
+push local 1
+call BST.getLeft 1
+pop local 2
+push local 2
+push this 1
+call BST.setLeft 2
+pop temp 0
+push local 2
+push this 2
+call BST.setRight 2
+pop temp 0
+push local 1
+push constant 0
+call BST.setLeft 2
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function BST.inorderSuccessorParent 2
+push argument 0
+pop pointer 0
+push this 2
+pop local 0
+label WHILE_EXP0
+push local 0
+call BST.getLeft 1
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+pop local 1
+push local 0
+call BST.getLeft 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
+return
+function BST.inorder 2
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+call BST.inorder 1
+pop local 0
+label IF_FALSE0
+push constant 1
+call BetterArray.new 1
+pop local 1
+push constant 0
+push local 1
+add
+push this 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push local 1
+call ArrayUtils.combine 2
+pop local 0
+push this 2
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
+push this 2
+call BST.inorder 1
+call ArrayUtils.combine 2
+pop local 0
+label IF_FALSE1
+push local 0
+return

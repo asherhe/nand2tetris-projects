@@ -1,0 +1,131 @@
+/**
+ * Runs the whole Tic-Tac-Toe game
+ */
+class TicTacToeGame {
+  field Grid grid;
+  field int turn; // The player that is going
+  field int gridX, gridY; // The on-screen position the grid is at
+  field int selX, selY; // The cell that is currently selected
+
+  constructor TicTacToeGame new() {
+    // Initialize some variables
+    let grid = Grid.new();
+    let turn = -1;
+    let gridX = 320;
+    let gridY = 64;
+    let selX = 1;
+    let selY = 1;
+    return this;
+  }
+
+  method void draw() {
+    var String text;
+
+    // Prepares the output
+    do Screen.clearScreen();
+    do Output.moveCursor(0, 0);
+
+    // Print title. Basically "Tic-Tac-Toe" in big letters
+    let text = " _____  _        _____\\n|_   _|(_) ___  |_   _|____  ___\\n  | |  | |/ __|   | | / _  |/ __|\\n  | |  | | (__    | || (_| | (__\\n  |_|  |_|\\\\___|   |_| \\\\__,_|\\\\___|\\n  _____\\n |_   _| ___    ___\\n   | |  / _ \\\\  / _ \\\\\\n   | | | (_) ||  __/\\n   |_|  \\\\___/  \\\\___|\\n\\n";
+    do OutUtils.print(text);
+    do text.dispose();
+    // Instructions
+    let text = "Use the arrow keys to move\\nthe currently selected tile.\\nTo select the current tile, \\npress Enter.\\n\\nPlayer ";
+    do OutUtils.print(text);
+    do text.dispose();
+
+    // Print player turn
+    if (turn = -1) {
+      do OutUtils.printAndDispose("1");
+    }
+    if (turn = 1) {
+      do OutUtils.printAndDispose("2");
+    }
+    do OutUtils.printAndDispose(" turn");
+
+    // Draw grid and stuff
+    do drawGrid(true);
+    return;
+  }
+
+  method void drawGrid(boolean includeSel) {
+    // Fill the old grid with white
+    do Screen.setColor(false);
+    do Screen.drawRectangle(gridX, gridY, gridX + 96, gridY + 96);
+
+    // Redraw Grid
+    do grid.draw(gridX, gridY);
+
+    // Draw the marker for the currently selected cell, if we need to do so
+    if (includeSel) {
+      do Screen.setColor(true);
+      do Screen.drawRectangle(gridX + (selX * 32), gridY + (selY * 32), gridX + 32 + (selX * 32), gridY + 32 + (selY * 32));
+    }
+    return;
+  }
+
+  method void run() {
+    var boolean quit;
+    var int key;
+    var int win;
+
+    do draw();
+    let quit = false;
+    while (~quit) {
+      // Move cursor to some corner of the screen (because of that black cursor from readChar())
+      do Output.moveCursor(22, 0);
+      // Gets the next input character
+      let key = Keyboard.readChar();
+      if (key = 81)  { // Q - Quit
+        let quit = true;
+      }
+
+      if (key = 131) { // Up
+        if (selY > 0) {
+          let selY = selY - 1;
+        }
+      }
+      if (key = 133) { // Down
+        if (selY < 2) {
+          let selY = selY + 1;
+        }
+      }
+      if (key = 130) { // Left
+        if (selX > 0) {
+          let selX = selX - 1;
+        }
+      }
+      if (key = 132) { // Right
+        if (selX < 2) {
+          let selX = selX + 1;
+        }
+      }
+
+      if (key = 128) { // Enter
+        if (grid.get(selX, selY) = 0) {
+          let win = grid.add(selX, selY, turn);
+          if (win = 0) {
+            let turn = turn * -1;
+            do draw();
+          }
+          if (~(win = 0)) {
+            do Output.moveCursor(1, 36);
+            do OutUtils.printAndDispose("Player ");
+            if (turn = -1) {
+              do OutUtils.printAndDispose("1");
+            }
+            if (turn = 1) {
+              do OutUtils.printAndDispose("2");
+            }
+            do OutUtils.printAndDispose(" wins!");
+            do grid.draw(gridX, gridY);
+            let quit = true;
+          }
+        }
+      }
+
+      do drawGrid(~quit);
+    }
+    return;
+  }
+}

@@ -1,0 +1,675 @@
+function Grid.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 3
+call Array.new 1
+pop this 0
+push constant 0
+push this 0
+add
+push constant 3
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 0
+add
+push constant 3
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 0
+add
+push constant 3
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+return
+function Grid.add 5
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 2
+push local 0
+add
+push argument 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+pop local 1
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 2
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label WHILE_EXP0
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 2
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 2
+push local 3
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+pop local 2
+label IF_FALSE0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 2
+pop local 4
+push constant 0
+pop local 1
+push argument 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 0
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label WHILE_EXP1
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END1
+push argument 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 1
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 2
+push local 3
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop local 2
+label IF_FALSE1
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 4
+push constant 0
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 2
+pop local 4
+label IF_FALSE2
+push argument 1
+push argument 2
+add
+pop local 2
+push local 2
+push local 2
+push constant 2
+call Math.divide 2
+push constant 2
+call Math.multiply 2
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 1
+push argument 2
+add
+push constant 2
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 0
+pop local 1
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 2
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label WHILE_EXP2
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END2
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 2
+push local 1
+sub
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 2
+push local 3
+eq
+not
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 0
+pop local 2
+label IF_FALSE5
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP2
+label WHILE_END2
+push local 4
+push constant 0
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 2
+pop local 4
+label IF_FALSE6
+label IF_FALSE4
+push argument 1
+push argument 2
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 0
+pop local 1
+push constant 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 0
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label WHILE_EXP3
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END3
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 1
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 2
+push local 3
+eq
+not
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 0
+pop local 2
+label IF_FALSE8
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP3
+label WHILE_END3
+push local 4
+push constant 0
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push local 2
+pop local 4
+label IF_FALSE9
+label IF_FALSE7
+label IF_FALSE3
+push local 4
+return
+function Grid.get 1
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 2
+push local 0
+add
+pop pointer 1
+push that 0
+return
+function Grid.draw 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 0
+push constant 3
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 3
+label WHILE_EXP1
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END1
+push local 1
+push local 3
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push constant 1
+neg
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+push local 0
+push constant 32
+call Math.multiply 2
+add
+push argument 2
+push local 1
+push constant 32
+call Math.multiply 2
+add
+call Grid.drawCross 2
+pop temp 0
+label IF_FALSE0
+push local 2
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push local 0
+push constant 32
+call Math.multiply 2
+add
+push argument 2
+push local 1
+push constant 32
+call Math.multiply 2
+add
+call Grid.drawCircle 2
+pop temp 0
+label IF_FALSE1
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push constant 32
+add
+push argument 2
+push argument 1
+push constant 33
+add
+push argument 2
+push constant 96
+add
+call Screen.drawRectangle 4
+pop temp 0
+push argument 1
+push constant 64
+add
+push argument 2
+push argument 1
+push constant 65
+add
+push argument 2
+push constant 96
+add
+call Screen.drawRectangle 4
+pop temp 0
+push argument 1
+push argument 2
+push constant 32
+add
+push argument 1
+push constant 96
+add
+push argument 2
+push constant 33
+add
+call Screen.drawRectangle 4
+pop temp 0
+push argument 1
+push argument 2
+push constant 64
+add
+push argument 1
+push constant 96
+add
+push argument 2
+push constant 65
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Grid.getMemAddress 0
+push constant 16384
+push argument 0
+push constant 16
+call Math.divide 2
+push argument 1
+push constant 32
+call Math.multiply 2
+add
+add
+return
+function Grid.drawCircle 1
+push argument 0
+push argument 1
+call Grid.getMemAddress 2
+pop local 0
+push local 0
+push constant 4096
+neg
+push constant 512
+neg
+push constant 8064
+push constant 960
+push constant 224
+push constant 112
+push constant 56
+push constant 28
+push constant 12
+push constant 14
+push constant 6
+push constant 6
+push constant 7
+push constant 3
+push constant 3
+push constant 3
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 15
+push constant 127
+push constant 504
+push constant 960
+push constant 1792
+push constant 3584
+push constant 7168
+push constant 14336
+push constant 12288
+push constant 28672
+push constant 24576
+push constant 24576
+push constant 8192
+neg
+push constant 16384
+neg
+push constant 16384
+neg
+push constant 16384
+neg
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 512
+add
+push constant 3
+push constant 3
+push constant 3
+push constant 7
+push constant 6
+push constant 6
+push constant 14
+push constant 12
+push constant 28
+push constant 56
+push constant 112
+push constant 224
+push constant 960
+push constant 8064
+push constant 512
+neg
+push constant 4096
+neg
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 513
+add
+push constant 16384
+neg
+push constant 16384
+neg
+push constant 16384
+neg
+push constant 8192
+neg
+push constant 24576
+push constant 24576
+push constant 28672
+push constant 12288
+push constant 14336
+push constant 7168
+push constant 3584
+push constant 1792
+push constant 960
+push constant 504
+push constant 127
+push constant 15
+call ScreenUtils.drawSprite 17
+pop temp 0
+push constant 0
+return
+function Grid.drawCross 1
+push argument 0
+push argument 1
+call Grid.getMemAddress 2
+pop local 0
+push local 0
+push constant 7
+push constant 15
+push constant 31
+push constant 62
+push constant 124
+push constant 248
+push constant 496
+push constant 992
+push constant 1984
+push constant 3968
+push constant 7936
+push constant 15872
+push constant 31744
+push constant 2048
+neg
+push constant 4096
+neg
+push constant 8192
+neg
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 8192
+neg
+push constant 4096
+neg
+push constant 2048
+neg
+push constant 31744
+push constant 15872
+push constant 7936
+push constant 3968
+push constant 1984
+push constant 992
+push constant 496
+push constant 248
+push constant 124
+push constant 62
+push constant 31
+push constant 15
+push constant 7
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 512
+add
+push constant 8192
+neg
+push constant 4096
+neg
+push constant 2048
+neg
+push constant 31744
+push constant 15872
+push constant 7936
+push constant 3968
+push constant 1984
+push constant 992
+push constant 496
+push constant 248
+push constant 124
+push constant 62
+push constant 31
+push constant 15
+push constant 7
+call ScreenUtils.drawSprite 17
+pop temp 0
+push local 0
+push constant 513
+add
+push constant 7
+push constant 15
+push constant 31
+push constant 62
+push constant 124
+push constant 248
+push constant 496
+push constant 992
+push constant 1984
+push constant 3968
+push constant 7936
+push constant 15872
+push constant 31744
+push constant 2048
+neg
+push constant 4096
+neg
+push constant 8192
+neg
+call ScreenUtils.drawSprite 17
+pop temp 0
+push constant 0
+return

@@ -1,0 +1,49 @@
+/**
+ * Provides some basic array utilities
+ */
+ class ArrayUtils {
+  // /**
+  //  * Clones an array
+  //  */
+  // function Array clone(Array a) {
+  //   var int k;
+  //   var int length;
+  //   var Array clone;
+  //   let k = 0;
+  //   let length = a.length();
+  //   let clone = Array.new(length);
+  //   while (k < length) {
+  //     let clone[k] = a[k];
+  //     let k = k + 1;
+  //   }
+  //   return clone;
+  // }
+
+  /**
+   * Combines two arrays into one
+   */
+  function BetterArray combine(BetterArray a, BetterArray b) {
+    var BetterArray combined;
+    var int length;
+    var int k;
+
+    let length = a.length() + b.length();
+    let combined = BetterArray.new(length);
+
+    let length = a.length();
+    let k = 0;
+    while (k < length) {
+      do combined.set(k, a.get(k));
+      let k = k + 1;
+    }
+
+    let length = b.length();
+    let k = 0;
+    while (k < length) {
+      do combined.set(k + a.length(), b.get(k));
+      let k = k + 1;
+    }
+    
+    return combined;
+  }
+}
