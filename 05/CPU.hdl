@@ -25,31 +25,6 @@
  * than to the address resulting from executing the current instruction. 
  */
 
-/**
-	*A: 0 v v v v v v v v v v v v v v v
-	*C: 1 1 1 a c1 c2 c3 c4 c5 c6 d1 d2 d3 j1 j2 j3
-	*
-	*			------------------------0--------------------|
-	*			|						|					 |
-	*			|						|	  c			 |
-	*			|						|  ___|___    c's    |
-	*			|						|-|D reg.|--|-|--\   |
-	*			|				  c       --------   \	  \  |
-	*			|---|-----\   ____|___                |ALU|--0------outM
-	*				|Mux16 |--|A reg.|-0--|-----\    /	  /
-	*instruction----|_____/	  -------- |  |Mux16 |--|____/
-	*				  |				   | _|_____/		|
-	*				  c                | |	|		   c's
-	*inM---------------------------------| c    			c--------writeM
-	*								   | 
-	*								   0----------------------------addressM
-	*								   |
-	*								   |   c
-	*		|--------------------------|-|_|
-	*		|						   -|PC|------------------------pc
-	*reset--|							----
-*/
-
 CHIP CPU {		//Make sure to invert elements
 
     IN  inM[16],         // M value input  (M = contents of RAM[A])
