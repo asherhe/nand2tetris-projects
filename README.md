@@ -28,7 +28,7 @@ Because the CPU can only read machine code, not random mnemonics, we must transl
 
 ## 07 - Virtual Machine I
 
-Now we move off of hardware altogether and enter the world of software. The virtual machine is an intermediate language designed to make the [compilation of high-level programs](#11---compiler-ii) much easier. This first stage of the VM impelentation will deal with the parsing of VM programs and simple push/pop and arithmetic features.
+Now we move off of hardware altogether and enter the world of software. The virtual machine is an intermediate language designed to make the [compilation of high-level programs](#11---compiler-ii-in-progress) much easier. This first stage of the VM impelentation will deal with the parsing of VM programs and simple push/pop and arithmetic features.
 
 ## 08 - Virtual Machine II
 
