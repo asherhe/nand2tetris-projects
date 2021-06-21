@@ -63,12 +63,19 @@ public class CompilationEngine {
   /**
    * Advances the tokenizer. If the current token is not the same as specified,
    */
-  private void getNext(String token) {
+  private String getNext(String... token) {
     tokenizer.advance();
     String value = tokenizer.value();
-    if (!value.equals(token)) {
-      throw new RuntimeException("Expected token \"" + token + "\", got \"" + value + "\" instead");
+    if (!Arrays.asList(token).contains(value)) {
+      if (token.length == 1) {
+        throw new RuntimeException("Expected token \"" + token + "\", got \"" + value + "\" instead");
+      } else {
+        throw new RuntimeException(
+            "Expected one of \"" + String.join("\", \"", token) + "\", got \"" + value + "\" instead.");
+      }
     }
+
+    return value;
   }
 
   /**
@@ -179,7 +186,7 @@ public class CompilationEngine {
    */
   public void compileStatements() {
     while (!tokenizer.peekNext().equals("}")) {
-      String statement = getNext(); // "do" or "let" or "while" or "return" or "if"
+      String statement = getNext("do", "let", "while", "return", "if");
       vmWriter.writeArithmetic("// " + statement); // INFO: Hack comment statements
       switch (statement) {
         case "do":
