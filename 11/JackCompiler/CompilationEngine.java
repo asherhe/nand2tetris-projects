@@ -267,9 +267,9 @@ public class CompilationEngine {
     } else {
       getNext("=");
       compileExpression();
-      getNext(";");
       vmWriter.writePushPop("pop", symbolTable.kindOf(name), symbolTable.indexOf(name));
     }
+    getNext(";");
   }
 
   /**
