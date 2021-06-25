@@ -35,8 +35,12 @@ public class CompilationEngine {
       opArithmetic.put("<", "lt");
       opArithmetic.put(">", "gt");
       opArithmetic.put("=", "eq");
-      opArithmetic.put("-", "neg");
-      opArithmetic.put("~", "not");
+    }
+
+    public static Map<String, String> unaryOp = new HashMap<>();
+    static {
+      unaryOp.put("-", "neg");
+      unaryOp.put("~", "not");
     }
   }
 
@@ -370,7 +374,7 @@ public class CompilationEngine {
           getNext(")");
         } else { // Unary operation
           compileTerm();
-          vmWriter.writeArithmetic(SyntaxElements.opArithmetic.get(value));
+          vmWriter.writeArithmetic(SyntaxElements.unaryOp.get(value));
         }
         break;
       case IDENTIFIER:
