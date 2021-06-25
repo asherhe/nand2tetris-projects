@@ -436,6 +436,22 @@ public class CompilationEngine {
           vmWriter.writeCall("String.appendChar", 2);
         }
         break;
+      case KEYWORD:
+        switch (value) {
+          case "null":
+          case "false":
+            vmWriter.writePushPop("push", "constant", 0);
+            break;
+          case "true":
+            vmWriter.writePushPop("push", "constant", 1);
+            vmWriter.writeArithmetic("neg");
+            break;
+          case "this":
+            vmWriter.writePushPop("push", symbolTable.kindOf("this"), symbolTable.indexOf("this"));
+            break;
+          default:
+            break;
+        }
       default:
         break;
     }
