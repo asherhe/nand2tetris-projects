@@ -6,10 +6,9 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch JackCompiler",
+      "name": "JackCompiler",
       "request": "launch",
       "mainClass": "JackCompiler",
-      "projectName": "JackCompiler_2d611dd8",
       "args": "${command:SpecifyProgramArgs}"
     }
   ]
