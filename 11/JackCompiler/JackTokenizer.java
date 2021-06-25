@@ -24,7 +24,7 @@ public class JackTokenizer {
   private static class JackSyntax {
     /**
      * The pattern for a one-line comment in Jack
-     * 
+     *
      * Regex Breakdown: (?m): ^ and $ denote the start and end of a line,
      * respectively // : A literal "//" .* : Any non-newline character $ : Denotes
      * the end of the line
@@ -33,7 +33,7 @@ public class JackTokenizer {
 
     /**
      * The pattern or a multiline comment in Jack
-     * 
+     *
      * Regex Breakdown: (?s): The expression . (any character) will also include
      * whitespace /* : Matches the literal "/*" (A "\" is put in front of the "*"
      * because it is a metacharacter) .*? : Any character (including newlines), but
@@ -44,7 +44,7 @@ public class JackTokenizer {
     /**
      * The pattern to match a token, with only spaces to separate
      * identifiers/keywords
-     * 
+     *
      * Regex Breakdown: First option - String: \" : Matches a double quote .*?:
      * Reluctantly matches characters (because we don't want to also eat up the
      * closing quote) \" : Matches a double quote Second option - Keyword,
@@ -66,7 +66,7 @@ public class JackTokenizer {
   /**
    * The Jack program, in a matcher for getting the next token easily
    */
-  private Matcher jackProgram;
+  public Matcher jackProgram;
 
   /**
    * Holds the current token; all other properties will be deduced from this
@@ -75,7 +75,7 @@ public class JackTokenizer {
 
   /**
    * Creates a JackTokenizer and sets it up for use.
-   * 
+   *
    * @param file The path to the Jack source file
    */
   public JackTokenizer(Path file) {
