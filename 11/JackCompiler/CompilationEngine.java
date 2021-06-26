@@ -168,6 +168,11 @@ public class CompilationEngine {
       vmWriter.writePushPop("pop", symbolTable.kindOf("this"), symbolTable.indexOf("this"));
     }
 
+    if (!subroutineType.equals("function")) {
+      vmWriter.writePushPop("push", symbolTable.kindOf("this"), symbolTable.indexOf("this"));
+      vmWriter.writePushPop("pop", "pointer", 0);
+    }
+
     compileStatements();
     getNext("}");
   }
