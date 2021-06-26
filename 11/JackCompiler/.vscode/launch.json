@@ -9,7 +9,8 @@
       "name": "JackCompiler",
       "request": "launch",
       "mainClass": "JackCompiler",
-      "args": "${command:SpecifyProgramArgs}"
+      "args": "${command:SpecifyProgramArgs}",
+      "console": "internalConsole"
     }
   ]
 }
