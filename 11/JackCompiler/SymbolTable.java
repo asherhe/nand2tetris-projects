@@ -90,6 +90,7 @@ public class SymbolTable {
       case "argument":
       case "local":
         subroutineTable.addEntry(name, type, kind, nextIndex(kind));
+        break;
     }
   }
 
@@ -116,10 +117,8 @@ public class SymbolTable {
    * @return The type of the variable with name name
    */
   public String typeOf(String name) {
-    String type;
-    try { // Attempt to retrieve data about
-      type = subroutineTable.typeOf(name);
-    } catch (Exception e) {
+    String type = subroutineTable.typeOf(name);
+    if (type == null) {
       type = classTable.typeOf(name);
     }
     return type;
