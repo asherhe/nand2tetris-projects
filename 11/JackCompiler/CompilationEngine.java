@@ -280,18 +280,19 @@ public class CompilationEngine {
    * Compiles a while statement
    */
   public void compileWhile() {
-    vmWriter.writeLabel("LOOP" + whileCount);
+    int currentCount = whileCount++;
+
+    vmWriter.writeLabel("LOOP" + currentCount);
     getNext("(");
     compileExpression();
     vmWriter.writeArithmetic("not");
-    vmWriter.writeIf("LOOP-END" + whileCount);
+    vmWriter.writeIf("LOOP-END" + currentCount);
     getNext(")");
     getNext("{");
     compileStatements();
-    vmWriter.writeGoto("LOOP" + whileCount);
+    vmWriter.writeGoto("LOOP" + currentCount);
     getNext("}");
-    vmWriter.writeLabel("LOOP-END" + whileCount);
-    whileCount++;
+    vmWriter.writeLabel("LOOP-END" + currentCount);
   }
 
   /**
@@ -309,24 +310,25 @@ public class CompilationEngine {
    * Compiles an if statemnt, possibly with a trailing else clause
    */
   public void compileIf() {
+    int currentCount = ifCount++;
     getNext("(");
     compileExpression();
     vmWriter.writeArithmetic("not");
-    vmWriter.writeIf("IF" + ifCount + "-1");
+    vmWriter.writeIf("IF" + currentCount + "-1");
     getNext(")");
     getNext("{");
     compileStatements();
     getNext("}");
     if (tokenizer.peekNext().equals("else")) {
-      vmWriter.writeGoto("IF" + ifCount + "-2");
-      vmWriter.writeLabel("IF" + ifCount + "-1");
+      vmWriter.writeGoto("IF" + currentCount + "-2");
+      vmWriter.writeLabel("IF" + currentCount + "-1");
       getNext("else");
       getNext("{");
       compileStatements();
       getNext("}");
-      vmWriter.writeLabel("IF" + ifCount + "-2");
+      vmWriter.writeLabel("IF" + currentCount + "-2");
     } else {
-      vmWriter.writeLabel("IF" + ifCount + "-1");
+      vmWriter.writeLabel("IF" + currentCount + "-1");
     }
   }
 
