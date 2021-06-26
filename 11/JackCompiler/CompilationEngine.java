@@ -237,6 +237,7 @@ public class CompilationEngine {
       case "(": // Method in this class
         vmWriter.writePushPop("push", symbolTable.kindOf("this"), symbolTable.indexOf("this")); // Push this to the top
                                                                                                 // of the stack
+        nameClass = className;
         argCount = compileExpressionList() + 1;
         break;
       case ".": // Any subroutine from some other class
@@ -411,9 +412,8 @@ public class CompilationEngine {
                 vmWriter.writePushPop("push", symbolTable.kindOf("this"), symbolTable.indexOf("this")); // Push this to
                                                                                                         // the top of
                                                                                                         // the stack
-                                                                                                        // argCount =
-                                                                                                        // compileExpressionList()
-                                                                                                        // + 1;
+                nameClass = className;
+                argCount = compileExpressionList() + 1;
                 break;
               case ".": // Any subroutine from some other class
                 subroutineName = getNext(); // subroutineName
