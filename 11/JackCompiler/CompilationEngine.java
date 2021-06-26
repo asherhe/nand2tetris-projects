@@ -163,7 +163,8 @@ public class CompilationEngine {
     }
     vmWriter.writeFunction(name, varCount);
     if (subroutineType.equals("constructor")) {
-      vmWriter.writeCall("Memory.alloc", symbolTable.getCount("this"));
+      vmWriter.writePushPop("push", "constant", symbolTable.getCount("this"));
+      vmWriter.writeCall("Memory.alloc", 1);
       vmWriter.writePushPop("pop", symbolTable.kindOf("this"), symbolTable.indexOf("this"));
     }
 
