@@ -28,7 +28,7 @@ public class SymbolTable {
       return this.kind.get(name);
     }
 
-    public int indexOf(String name) {
+    public Integer indexOf(String name) {
       return this.index.get(name);
     }
   }
@@ -73,7 +73,7 @@ public class SymbolTable {
   /**
    * Defines a new variable from its properties (the index of the segment will be
    * chosen by our program with a counter, so no need to worry about that)
-   * 
+   *
    * @param name The name of this variable. Follows the naming rules of Jack
    *             variables
    * @param type The type of the variable - int, char, boolean, or a class name
@@ -95,6 +95,7 @@ public class SymbolTable {
 
   /**
    * Checks whether a variable exists
+   *
    * @param name The name of the variable to check
    * @return Whether the variable exists
    */
@@ -110,7 +111,7 @@ public class SymbolTable {
   /**
    * Gets the type of a variable. The subroutine table will be searched first, and
    * if the variable could not be found, the class tably would be searched
-   * 
+   *
    * @param name The name of the variable
    * @return The type of the variable with name name
    */
@@ -127,15 +128,13 @@ public class SymbolTable {
   /**
    * Gets the kind of a variable. The subroutine table will be searched first, and
    * if the variable could not be found, the class tably would be searched
-   * 
+   *
    * @param name The name of the variable
    * @return The kind of the variable with name name
    */
   public String kindOf(String name) {
-    String kind;
-    try { // Attempt to retrieve data about
-      kind = subroutineTable.kindOf(name);
-    } catch (Exception e) {
+    String kind = subroutineTable.kindOf(name);
+    if (kind == null) {
       kind = classTable.kindOf(name);
     }
     return kind;
@@ -144,15 +143,13 @@ public class SymbolTable {
   /**
    * Gets the index of a variable. The subroutine table will be searched first,
    * and if the variable could not be found, the class tably would be searched
-   * 
+   *
    * @param name The name of the variable
    * @return The index of the variable with name name
    */
   public int indexOf(String name) {
-    int index;
-    try { // Attempt to retrieve data about
-      index = subroutineTable.indexOf(name);
-    } catch (Exception e) {
+    Integer index = subroutineTable.indexOf(name);
+    if (index == null) {
       index = classTable.indexOf(name);
     }
     return index;

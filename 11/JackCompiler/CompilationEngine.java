@@ -140,9 +140,13 @@ public class CompilationEngine {
 
     // Subroutine declaration
     String subroutineType = getNext();
-    if (subroutineType.equals("method")) {
-      symbolTable.define("this", className, "arg");
-      varCount++;
+    switch (subroutineType) {
+      case "method":
+        symbolTable.define("this", className, "arg");
+        break;
+      case "constructor":
+        symbolTable.define("this", className, "var");
+        varCount++;
     }
     getNext(); // returnType
     String name = className + "." + getNext();
@@ -160,6 +164,7 @@ public class CompilationEngine {
     vmWriter.writeFunction(name, varCount);
     if (subroutineType.equals("constructor")) {
       vmWriter.writeCall("Memory.alloc", symbolTable.getCount("this"));
+      vmWriter.writePushPop("pop", symbolTable.kindOf("this"), symbolTable.indexOf("this"));
     }
 
     compileStatements();
