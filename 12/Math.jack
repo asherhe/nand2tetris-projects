@@ -15,6 +15,15 @@ class Math {
 
     /** Returns the absolute value of x. */
     function int abs(int x) {
+      if (x < 0) {
+        return -x;
+      }
+      return x;
+    }
+
+    /** Returns the i-th bit of n */
+    function int bit(int n, int i) {
+      return n & twoToThe[i]; // Use a bit mask to get the value, since we don't have bit shifting
     }
 
     /** Returns the product of x and y. 
@@ -39,9 +48,17 @@ class Math {
 
     /** Returns the greater number. */
     function int max(int a, int b) {
+      if (a > b) {
+        return a;
+      }
+      return b;
     }
 
     /** Returns the smaller number. */
     function int min(int a, int b) {
+      if (a > b) {
+        return b;
+      }
+      return a;
     }
 }
