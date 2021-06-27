@@ -28,7 +28,7 @@ Because the CPU can only read machine code, not random mnemonics, we must transl
 
 ## 07 - Virtual Machine I
 
-Now we move off of hardware altogether and enter the world of software. The virtual machine is an intermediate language designed to make the [compilation of high-level programs](#11---compiler-ii-in-progress) much easier. This first stage of the VM impelentation will deal with the parsing of VM programs and simple push/pop and arithmetic features.
+Now we move off of hardware altogether and enter the world of software. The virtual machine is an intermediate language designed to make the [compilation of high-level programs](#11---compiler-ii) much easier. This first stage of the VM impelentation will deal with the parsing of VM programs and simple push/pop and arithmetic features.
 
 ## 08 - Virtual Machine II
 
@@ -42,7 +42,7 @@ This project is meant to familiarize yourself with the Jack language, as it is h
 
 This stage of the compiler will not write any code. Instead, it will write XML markup corresponding to the structure of the Jack program. You will implement both a tokenizer, which splits the program up into the most fundamental units of information, and also a parser, which will organize the tokens into some sort of organized structure.
 
-## 11 - Compiler II (In progress)
+## 11 - Compiler II
 
 In the second stage of the compiler, instead of writing XML statements, we will write code with an actual meaning. Lots of the code from [Compiler I](#10---compiler-i) will be reused, and more code will be added to deal with variables and the writing of VM instructions.
 
