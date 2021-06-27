@@ -1,3 +1,12 @@
+04/**/
+06/**/*.hack
+07/**/*.asm
+!07/VMTranslator*/*.asm
+!07/VMTranslator/*.asm
+08/**/*.asm
+!08/VMTranslator08/*.asm
+09/**/*.vm
+10/**/*.xml
 11/**/*.vm
 12/**/*.vm
 
