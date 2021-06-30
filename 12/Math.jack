@@ -71,6 +71,7 @@ class Math {
           let sum = sum + shiftedX;
         }
         let shiftedX = shiftedX + shiftedX; // Again, we can't multiply by two, so this'll do
+        let j = j + 1;
       }
 
       if (isNeg) {
