@@ -67,7 +67,7 @@ class Math {
       let sum = 0;
       let shiftedX = x; // We shift x by one bit each time, like actual mltiplication
       while (j < 16) {
-        if (bit(y, j) = 1) {
+        if (~(Math.bit(y, j) = 0)) {
           let sum = sum + shiftedX;
         }
         let shiftedX = shiftedX + shiftedX; // Again, we can't multiply by two, so this'll do
