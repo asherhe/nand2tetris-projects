@@ -47,18 +47,36 @@ class Math {
      *  the Jack expressions x*y and multiply(x,y) return the same value.
      */
     function int multiply(int x, int y) {
-      var int sum, shiftedX;
       var int j;
-      let sum = 0;
-      let shiftedX = x; // We shift x by one bit each time, like actual division
+      var int sum, shiftedX;
+      var boolean isNeg;
+
+      // Find whether the result will be negative
+      let isNeg = ((x < 0) & (y > 0)) | ((x > 0) & (y < 0)); // Checks whether the results will be negative later on
+      // Now make both x and y positive
+      let x = Math.abs(x);
+      let y = Math.abs(y);
+      // And swap x and y so that x is larger
+      if (x < y) {
+        let x = x + y;
+        let y = x - y;
+        let x = x - y;
+      }
 
       let j = 0;
+      let sum = 0;
+      let shiftedX = x; // We shift x by one bit each time, like actual mltiplication
       while (j < 16) {
         if (bit(y, j) = 1) {
           let sum = sum + shiftedX;
         }
         let shiftedX = shiftedX + shiftedX; // Again, we can't multiply by two, so this'll do
       }
+
+      if (isNeg) {
+        let sum = -sum;
+      }
+
       return sum;
     }
 
