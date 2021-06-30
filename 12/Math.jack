@@ -36,7 +36,7 @@ class Math {
       return x;
     }
 
-    /** Returns the i-th bit of n */
+    /** Returns the value of the i-th bit of n (i.e. 1, 2, 4, 8, etc.) */
     function int bit(int n, int i) {
       return n & twoToThe[i]; // Use a bit mask to get the value, since we don't have bit shifting
     }
