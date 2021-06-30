@@ -12,7 +12,7 @@ class Math {
 
     /** Initializes the library. */
     function void init() {
-      var int two;
+      var int powerOfTwo;
       var int i;
 
       // Fill up twoToThe[i]
@@ -23,6 +23,7 @@ class Math {
       while (i < 16) {
         let twoToThe[i] = powerOfTwo;
         let powerOfTwo = powerOfTwo + powerOfTwo; // We can't use the * symbol or it'd be an infinite recursion
+        let i = i + 1;
       }
       return;
     }
