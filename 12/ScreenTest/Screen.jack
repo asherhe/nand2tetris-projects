@@ -72,15 +72,32 @@ class Screen {
         var int a, b;
         var int aDyMinusbDx;
         
+        if (x1 > x2) { // Swap so that the line is drawn from left to right
+            let x1 = x1 + x2;
+            let x2 = x1 - x2;
+            let x1 = x1 - x2;
+
+            let y1 = y1 + y2;
+            let y2 = y1 - y2;
+            let y1 = y1 - y2;
+        }
+        
         let dx = x2 - x1;
         let dy = y2 - y1;
 
         let a = 0;
         let b = 0;
         if (dx = 0) {
-            while (b < dy) {
-                do Screen.drawPixel(x1, y1 + b);
-                let b = b + 1;
+            if (dy > 0) {
+                while (b < dy) {
+                    do Screen.drawPixel(x1, y1 + b);
+                    let b = b + 1;
+                }
+            } else {
+                while (b > dy) {
+                    do Screen.drawPixel(x1, y1 + b);
+                    let b = b - 1;
+                }
             }
         } else {
             if (dy = 0) {
@@ -89,16 +106,31 @@ class Screen {
                     let a = a + 1;
                 }
             } else {
-                let aDyMinusbDx = 0;
-                while (~((a > dx) | (b > dy))) { // De Morgan's Law - Jack doesn't have >= or <=
-                    do Screen.drawPixel(x1 + a, y1 + b);
-                    if (aDyMinusbDx < 0) { // Overshooting - would be (a/dx) < (b/dy), but division by zero may occur
-                        let a = a + 1;
-                        let aDyMinusbDx = aDyMinusbDx + dy;
+                if (dy > 0) {
+                    let aDyMinusbDx = 0;
+                    while (~((a > dx) | (b > dy))) { // De Morgan's Law - Jack doesn't have >= or <=
+                        do Screen.drawPixel(x1 + a, y1 + b);
+                        if (aDyMinusbDx < 0) { // Overshooting - would be (a/dx) < (b/dy), but division by zero may occur
+                            let a = a + 1;
+                            let aDyMinusbDx = aDyMinusbDx + dy;
+                        }
+                        else { // Undershooting
+                            let b = b + 1;
+                            let aDyMinusbDx = aDyMinusbDx - dx;
+                        }
                     }
-                    else { // Undershooting
-                        let b = b + 1;
-                        let aDyMinusbDx = aDyMinusbDx - dx;
+                }
+                else { 
+                    let aDyMinusbDx = 0;
+                    while (~((a > dx) | (b < dy))) {
+                        do Screen.drawPixel(x1 + a, y1 + b);
+                        if (aDyMinusbDx < 0) {
+                            let a = a + 1;
+                            let aDyMinusbDx = aDyMinusbDx - dy;
+                        } else {
+                            let b = b - 1;
+                            let aDyMinusbDx = aDyMinusbDx - dx;
+                        }
                     }
                 }
             }
@@ -124,7 +156,7 @@ class Screen {
             }
         } else {
             while (line < width) {
-                do Screen.drawLine(x1 + line, y1, x2 + width, y1);
+                do Screen.drawLine(x1 + line, y1, x1 + line, y2);
                 let line = line + 1;
             }
         }
