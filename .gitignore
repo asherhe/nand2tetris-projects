@@ -9,6 +9,8 @@
 10/**/*.xml
 11/**/*.vm
 12/**/*.vm
+12/*Test/*.jack
+12/*Test/!Main.jack
 
 00/
 demo/
