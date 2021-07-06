@@ -28,7 +28,8 @@ class Output {
     function void init() {
         let screen = 16384;
         do Output.initMap();
-        do Output.moveCursor(0, 0);
+        let row = 0;
+        let column = 0;
         return;
     }
 
